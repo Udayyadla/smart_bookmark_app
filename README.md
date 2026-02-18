@@ -119,7 +119,7 @@ As a result, TypeScript inferred table types as `never`, causing `.insert()` and
 
 To resolve this, I explicitly typed the Supabase client using a generic:
 
-````ts
+```
 createClient<any>(...)
 ```
 
