@@ -121,6 +121,7 @@ To resolve this, I explicitly typed the Supabase client using a generic:
 
 ````ts
 createClient<any>(...)
+```
 
 
 
@@ -142,7 +143,7 @@ Supabase "Site URL" was still configured for development.
 
 ```ts
 redirectTo: window.location.origin
-````
+```
 
 ### Key Learning
 
