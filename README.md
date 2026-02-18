@@ -248,9 +248,4 @@ npm run dev
 # 🏁 Conclusion
 
 This project demonstrates secure authentication, database-level authorization, realtime synchronization, and production deployment using modern full-stack tools.
-
-```
-
-
-
 ```
