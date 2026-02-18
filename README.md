@@ -1,5 +1,3 @@
-
-```md
 # 📌 Smart Bookmark App
 
 A full-stack bookmark manager built using **Next.js (App Router)** and **Supabase (Authentication + PostgreSQL + Realtime)**.
@@ -10,7 +8,7 @@ This project demonstrates secure per-user data isolation, real-time synchronizat
 
 ## 🚀 Live Demo
 
-🔗 https://smartbookmarkapp-rho.vercel.app/ 
+🔗 https://smartbookmarkapp-rho.vercel.app/
 
 ---
 
@@ -44,9 +42,6 @@ This project demonstrates secure per-user data isolation, real-time synchronizat
 ---
 
 # 🏗 Architecture Overview
-
-```
-
 Client (Next.js)
 ↓
 Supabase JS Client
@@ -85,9 +80,9 @@ Bookmarks were not inserting or deleting even though frontend logic was correct.
 
 RLS was enabled but:
 
-* `user_id` column type mismatch
-* Policies not aligned with `auth.uid()`
-* Silent database rejection
+- `user_id` column type mismatch
+- Policies not aligned with `auth.uid()`
+- Silent database rejection
 
 ### Solution
 
@@ -124,7 +119,7 @@ As a result, TypeScript inferred table types as `never`, causing `.insert()` and
 
 To resolve this, I explicitly typed the Supabase client using a generic:
 
-```ts
+````ts
 createClient<any>(...)
 
 
@@ -147,7 +142,7 @@ Supabase "Site URL" was still configured for development.
 
 ```ts
 redirectTo: window.location.origin
-```
+````
 
 ### Key Learning
 
@@ -155,9 +150,9 @@ OAuth flows depend heavily on correct environment configuration.
 
 ---
 
-* Logged Supabase URL in both environments
-* Synced environment variables in Vercel
-* Redeployed application
+- Logged Supabase URL in both environments
+- Synced environment variables in Vercel
+- Redeployed application
 
 ### Key Learning
 
@@ -175,10 +170,10 @@ If two tabs are open, changes in one should instantly reflect in the other witho
 
 Realtime requires:
 
-* Replication enabled on the table
-* Subscription after authentication
-* Proper RLS filtering
-* Correct WebSocket lifecycle handling
+- Replication enabled on the table
+- Subscription after authentication
+- Proper RLS filtering
+- Correct WebSocket lifecycle handling
 
 ### Solution
 
@@ -199,10 +194,10 @@ Realtime synchronization involves distributed state management — not just enab
 
 # 🔒 Security Considerations
 
-* Row Level Security enabled
-* Strict per-user data isolation
-* No service-role key exposed
-* Environment variables secured in Vercel
+- Row Level Security enabled
+- Strict per-user data isolation
+- No service-role key exposed
+- Environment variables secured in Vercel
 
 ---
 
@@ -210,13 +205,13 @@ Realtime synchronization involves distributed state management — not just enab
 
 This project strengthened my understanding of:
 
-* Authentication flows
-* Authorization policies (RLS)
-* OAuth lifecycle management
-* Environment configuration
-* Realtime WebSocket synchronization
-* Production deployment debugging
-* Strong TypeScript integration
+- Authentication flows
+- Authorization policies (RLS)
+- OAuth lifecycle management
+- Environment configuration
+- Realtime WebSocket synchronization
+- Production deployment debugging
+- Strong TypeScript integration
 
 The most challenging aspects were understanding how different layers of the system interact in production environments.
 
@@ -248,4 +243,3 @@ npm run dev
 # 🏁 Conclusion
 
 This project demonstrates secure authentication, database-level authorization, realtime synchronization, and production deployment using modern full-stack tools.
-```
